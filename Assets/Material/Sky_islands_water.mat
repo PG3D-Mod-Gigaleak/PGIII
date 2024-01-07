@@ -4,13 +4,15 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_Name: Sky_islands_water
   m_Shader: {fileID: 4800000, guid: cd6510f393647db448aeb58c8b489b27, type: 3}
-  m_ShaderKeywords:
+  m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 0
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -21,13 +23,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Cutoff: 0.5
-    - _Shininess: 0.7
-    - _FadeOutDistNear: 1
-    - _FadeOutDistFar: 1000
-    - _Multiplier: 0.1
     - _ContractionAmount: 5
+    - _Cutoff: 0.5
+    - _FadeOutDistFar: 1000
+    - _FadeOutDistNear: 1
+    - _Multiplier: 0.1
+    - _Shininess: 0.7
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecColor: {r: 1, g: 1, b: 1, a: 0}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 0}
