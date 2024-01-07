@@ -207,7 +207,7 @@ public class FirstPersonControl : MonoBehaviour
 			canJump = true;
 			jump = false;
 			Joystick joystick = rotateTouchPad;
-			if (canJump && (joystick.jumpPressed || (!Application.isMobilePlatform && Input.GetKeyDown(KeyCode.Space))))
+			if (canJump && (joystick.jumpPressed || (!Application.isMobilePlatform && Input.GetKey(KeyCode.Space))))
 			{
 				joystick.jumpPressed = false;
 				jump = true;
