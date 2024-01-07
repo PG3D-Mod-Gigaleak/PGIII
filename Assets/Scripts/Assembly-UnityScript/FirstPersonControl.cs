@@ -181,14 +181,6 @@ public class FirstPersonControl : MonoBehaviour
 			if (Screen.lockCursor)
 			{
 				rotateTouchPad.position = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * 10f;
-				if (Input.GetMouseButton(0))
-				{
-					_playerGun.SendMessage("ShotPressed");
-				}
-				if (Input.GetKeyDown(KeyCode.R))
-				{
-					_playerGun.SendMessage("ReloadPressed");
-				}
 			}
 		}
 		Vector3 motion = thisTransform.TransformDirection(new Vector3(moveTouchPad.position.x, 0f, moveTouchPad.position.y));

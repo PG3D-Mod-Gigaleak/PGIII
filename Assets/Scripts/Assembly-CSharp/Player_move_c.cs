@@ -1891,6 +1891,27 @@ public class Player_move_c : MonoBehaviour
 					leftFingerLastPos = leftFingerPos;
 					slideMagnitudeX = 0f;
 				}
+				if (Screen.lockCursor)
+				{
+					if (_weaponManager.currentWeaponSounds.isSerialShooting)
+					{
+						if (Input.GetMouseButton(0))
+						{
+							ShotPressed();
+						}
+					}
+					else
+					{
+						if (Input.GetMouseButtonDown(0))
+						{
+							ShotPressed();
+						}
+					}
+				}
+				if (Input.GetKeyDown(KeyCode.R))
+				{
+					ReloadPressed();
+				}
 			}
 		}
 		slideScroll();
