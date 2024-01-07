@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: bridge_kraska
+  m_Name: dust_pol1
   m_Shader: {fileID: 4800000, guid: 84cb5b5d42795e049a79eb5b4efabeba, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 0
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -19,11 +19,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _LightMap:
-        m_Texture: {fileID: 2800000, guid: 0d67af5e7ce02e7458cc87858e3fbfd4, type: 3}
+        m_Texture: {fileID: 2800000, guid: eb32ed7c99eff9547b5f332f08d07c78, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 45f34cb5a9def7644ad59094ca8d04f7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7603e6465d1f5ec4797ac941064c197b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
