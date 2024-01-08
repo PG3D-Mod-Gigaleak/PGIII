@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: farm_dom_krysha
+  m_Name: Sky_islands_rock - Copy
   m_Shader: {fileID: 4800000, guid: 84cb5b5d42795e049a79eb5b4efabeba, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 0
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -19,11 +19,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _LightMap:
-        m_Texture: {fileID: 2800000, guid: a5bea731616943849a9f2bedc2243835, type: 3}
+        m_Texture: {fileID: 2800000, guid: 09f655ea5dc91d04ea6f7cefe9c488b0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2aebbd4a4f16f55449201aa0bf29d796, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2adbc6099525c52488cea43fa0888c7d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
