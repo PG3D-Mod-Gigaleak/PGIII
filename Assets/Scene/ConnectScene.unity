@@ -1,82 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!29 &4
-OcclusionCullingSettings:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_OcclusionBakeSettings:
-    smallestOccluder: 5
-    smallestHole: 0.25
-    backfaceThreshold: 100
-  m_SceneGUID: dbea0eae160e9b94e8d1d879c1158838
-  m_OcclusionCullingData: {fileID: 0}
---- !u!104 &7
-RenderSettings:
-  m_ObjectHideFlags: 0
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.01
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
-  m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
-  m_HaloStrength: 0.5
-  m_FlareStrength: 1
-  m_FlareFadeSpeed: 3
-  m_HaloTexture: {fileID: 0}
-  m_SpotCookie: {fileID: 0}
-  m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
-  m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
-  m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
---- !u!157 &11
-LightmapSettings:
-  m_ObjectHideFlags: 0
-  serializedVersion: 11
-  m_GIWorkflowMode: 1
-  m_GISettings:
-    serializedVersion: 2
-    m_BounceScale: 1
-    m_IndirectOutputScale: 1
-    m_AlbedoBoost: 1
-    m_TemporalCoherenceThreshold: 1
-    m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 1
-  m_UseShadowmask: 1
---- !u!196 &12
-NavMeshSettings:
-  m_ObjectHideFlags: 0
-  m_BuildSettings:
-    serializedVersion: 2
-    agentTypeID: 0
-    agentRadius: 0.5
-    agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
-    ledgeDropHeight: 0
-    maxJumpAcrossDistance: 0
-    minRegionArea: 2
-    manualCellSize: 0
-    cellSize: 0.16666667
-    manualTileSize: 0
-    tileSize: 256
-    accuratePlacement: 0
-    debug:
-      m_Flags: 0
-  m_NavMeshData: {fileID: 0}
 --- !u!1 &1
 GameObject:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2}
@@ -96,6 +24,8 @@ GameObject:
 --- !u!4 &2
 Transform:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
@@ -107,6 +37,8 @@ Transform:
 --- !u!20 &3
 Camera:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1}
   m_Enabled: 1
   serializedVersion: 2
@@ -138,35 +70,157 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 0
   m_StereoSeparation: 0
+--- !u!29 &4
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: dbea0eae160e9b94e8d1d879c1158838
+  m_OcclusionCullingData: {fileID: 0}
 --- !u!81 &5
 AudioListener:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1}
   m_Enabled: 1
 --- !u!92 &6
-GUILayer:
+Behaviour:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1}
   m_Enabled: 1
+--- !u!104 &7
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 8
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientEquatorColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientGroundColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!124 &8
-FlareLayer:
+Behaviour:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1}
   m_Enabled: 1
+--- !u!157 &11
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 11
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_TemporalCoherenceThreshold: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 1
+  m_LightmapEditorSettings:
+    serializedVersion: 9
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 0
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 500
+    m_PVRBounces: 2
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVRFilteringMode: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
+  m_LightingDataAsset: {fileID: 0}
+  m_UseShadowmask: 1
+--- !u!196 &12
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49b71c8738f7a184fa7afae894c08220, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   _purchaseActivityIndicator: {fileID: 0}
-  name:
+  name: 
   myName: MyName
-  goMapName:
-  tLocalIsNotAvailable: {fileID: 2800000, guid: b20dbc07b81568841b47983f3f6365da, type: 3}
+  goMapName: 
+  tLocalIsNotAvailable: {fileID: 2800000, guid: b20dbc07b81568841b47983f3f6365da,
+    type: 3}
   swipeTexture: {fileID: 2800000, guid: b35ecaea145474d4498137e25495e73d, type: 3}
   limitsPlayer: 4
   killToWin: 10
@@ -189,7 +243,7 @@ MonoBehaviour:
   head_listOfGames: {fileID: 2800000, guid: 5a266d4d7cc36bb43a8a63b9f2af638f, type: 3}
   head_search: {fileID: 2800000, guid: 3fb411031c5a27c4185fe05f29e69a2a, type: 3}
   randomStyle:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 0a3e3c64699316e4b8f7f739291f39f9, type: 3}
       m_ScaledBackgrounds: []
@@ -256,7 +310,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   sPasswordJoin:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 9efc48c6e88eb7945a9d3e30c53e6a53, type: 3}
       m_ScaledBackgrounds: []
@@ -323,7 +377,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   clearStyle:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: e962f44c9bbbd774c886589bf9f9f4e0, type: 3}
       m_ScaledBackgrounds: []
@@ -390,7 +444,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   sSearch:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: cd4ac2a0d631c084ba45d6b69911204a, type: 3}
       m_ScaledBackgrounds: []
@@ -457,7 +511,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   sPasswordOk:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 1a2cb5741ecd43c4299eae59114f1a2d, type: 3}
       m_ScaledBackgrounds: []
@@ -524,7 +578,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   sPasswordCancel:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 7e15f95e1e52ab240b0d173a053d47b1, type: 3}
       m_ScaledBackgrounds: []
@@ -591,7 +645,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   back:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: f59978374dfe274448a1f041bc494bbb, type: 3}
       m_ScaledBackgrounds: []
@@ -658,7 +712,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   sSetPassword:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 4be4eccfe8285c74485a399654bbc7fc, type: 3}
       m_ScaledBackgrounds: []
@@ -725,7 +779,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   connect:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: f3cbb1ca2cd51124f862fee99ce4041a, type: 3}
       m_ScaledBackgrounds: []
@@ -792,7 +846,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   connect_small:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 78f4305aa3ca0f0498a58ddfbbae0346, type: 3}
       m_ScaledBackgrounds: []
@@ -859,7 +913,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   create:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 33102947901b48848b6f5df801ec7563, type: 3}
       m_ScaledBackgrounds: []
@@ -926,7 +980,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   local:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 703acc38b863d994e8e59d940ebae836, type: 3}
       m_ScaledBackgrounds: []
@@ -993,7 +1047,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   minus:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: efe950f9445e941489ff4cf2cc6bfaa6, type: 3}
       m_ScaledBackgrounds: []
@@ -1060,7 +1114,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   next_conn:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 305f85f45a83a2c4c85e7160915288a7, type: 3}
       m_ScaledBackgrounds: []
@@ -1127,7 +1181,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   plus:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 4fdbc3e54b8f65141bc338f8b622b270, type: 3}
       m_ScaledBackgrounds: []
@@ -1194,7 +1248,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   profile:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: a9619ea51f48a2b478fde08556c27ab9, type: 3}
       m_ScaledBackgrounds: []
@@ -1261,7 +1315,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   seach:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 6e5ad18106c0bbb49aaa97707b749317, type: 3}
       m_ScaledBackgrounds: []
@@ -1328,7 +1382,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   setStyle:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: b093bdfcef235c14a8aebecc5d5d5a35, type: 3}
       m_ScaledBackgrounds: []
@@ -1395,7 +1449,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   start:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 39ee20306dcba3c4f8b7a7e6c421a26f, type: 3}
       m_ScaledBackgrounds: []
@@ -1462,7 +1516,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   worldwide:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 5f9341d54a5da60439ffbf73b4e608f5, type: 3}
       m_ScaledBackgrounds: []
@@ -1529,7 +1583,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   nameStyle:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 41a46a3f411ff514e941861e3e3ca4ba, type: 3}
       m_ScaledBackgrounds: []
@@ -1596,7 +1650,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   countStyle:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 87a4f0ae91eb7a64db0095e5b2394223, type: 3}
       m_ScaledBackgrounds: []
@@ -1663,7 +1717,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   commentStyle:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 1df7c330ec2297f429ce472bba64a2bd, type: 3}
       m_ScaledBackgrounds: []
@@ -1730,7 +1784,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   mapNameStyle:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -1797,7 +1851,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   numberofplayersStyle:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -1864,7 +1918,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   playersWindow:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 8287c4248aa66da44bc72c28d09f052b, type: 3}
       m_ScaledBackgrounds: []
@@ -1931,7 +1985,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   closeServer:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 8ac6cd491275dd641bda2a671638bc63, type: 3}
       m_ScaledBackgrounds: []
@@ -1998,7 +2052,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   openServer:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 9e47f0bec4edebe4b94c2a1e4d70a8d7, type: 3}
       m_ScaledBackgrounds: []
@@ -2065,7 +2119,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   openServerText:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -2132,7 +2186,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   closeServerText:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -2199,7 +2253,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   openServerFont:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -2266,7 +2320,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   closeServerFont:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 0}
       m_ScaledBackgrounds: []
@@ -2333,7 +2387,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   bigStart:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: f7c0c4fc4efd7e744b36abd320a772d5, type: 3}
       m_ScaledBackgrounds: []
@@ -2400,7 +2454,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   customGame:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 642b4e04216c5054fbecc23f6573eece, type: 3}
       m_ScaledBackgrounds: []
@@ -2467,10 +2521,16 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   masMap:
+  - {fileID: 2800000, guid: 6c0e86b88997caf4fa4db73da7af50f6, type: 3}
+  - {fileID: 2800000, guid: 34bea3e68b6512342a2b6685db459238, type: 3}
+  - {fileID: 2800000, guid: 6e4ea1a282c8f05418630616efbc50b8, type: 3}
+  - {fileID: 2800000, guid: dc48856dbe5853c4bb80b40f0d4a7f3d, type: 3}
   - {fileID: 2800000, guid: 4db78a773ada782469b503daf1db4159, type: 3}
   - {fileID: 2800000, guid: 9f38b1b4e7863ba4e8e0ba4032bdc234, type: 3}
   - {fileID: 2800000, guid: f9bba761bef2fa5459f5fbf05c66d048, type: 3}
   - {fileID: 2800000, guid: 74a2c6c1f26cf674a8a02d5706631a5e, type: 3}
+  - {fileID: 2800000, guid: fcabe7ff9e5317646bc9af293c63a5f9, type: 3}
+  - {fileID: 2800000, guid: 1b3d03d95c5888247aead14f1351b1b6, type: 3}
   - {fileID: 2800000, guid: da182da23a52e74498b4427ee9df05f9, type: 3}
   - {fileID: 2800000, guid: 95c1bfdd9887ca14896ecb1d4606df46, type: 3}
   - {fileID: 2800000, guid: 7927a3e89d126424e82a546868ab7193, type: 3}
@@ -2480,10 +2540,16 @@ MonoBehaviour:
   - {fileID: 2800000, guid: adc4e9be47ff2c840bc7c2f71be09e66, type: 3}
   - {fileID: 2800000, guid: c6e816bb10561c4478998752d52e293c, type: 3}
   masLoading:
+  - {fileID: 2800000, guid: c9dcfe11fe077a64482565156cae7c02, type: 3}
+  - {fileID: 2800000, guid: b734cded3cff2164ca891a7dbd5adc18, type: 3}
+  - {fileID: 2800000, guid: 02ae79930e6ea5643b6e382cbc85c70e, type: 3}
+  - {fileID: 2800000, guid: fb1893b98f9804f419bf5ba67933c979, type: 3}
   - {fileID: 2800000, guid: 952ef156868c9334cb50871094f27f92, type: 3}
   - {fileID: 2800000, guid: 37a9ed3e14be07642aba4e3f139d68cb, type: 3}
   - {fileID: 2800000, guid: 68caa5572fe47374aa2df92c626ec6c8, type: 3}
   - {fileID: 2800000, guid: b7363262580eb5545af7f384d23b1a41, type: 3}
+  - {fileID: 2800000, guid: 839a85354bef17b4592e3faaf627d00f, type: 3}
+  - {fileID: 2800000, guid: 56d7597fc2a8486459039284eae8e521, type: 3}
   - {fileID: 2800000, guid: 0d989bea66978e14d9a7f3e4d8275ea4, type: 3}
   - {fileID: 2800000, guid: f0c958550bb22114f9258de497219ca2, type: 3}
   - {fileID: 2800000, guid: 8511044cfa9efaf4e830e63eedfcbffa, type: 3}
@@ -2493,10 +2559,16 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 825955f468da3c047a7316f15c4ea9da, type: 3}
   - {fileID: 2800000, guid: aa9422906ffa47148b63d1fc28360d79, type: 3}
   masMapName:
+  - Maze
+  - Cementery
+  - Hospital
+  - City
   - Winter
   - Utopia
   - Sky_islands
   - Gluk
+  - Ranch
+  - Arena_MP
   - Castle
   - Pool
   - Assault
@@ -2528,7 +2600,7 @@ MonoBehaviour:
   head_first: {fileID: 2800000, guid: 46a36a53b6162614a9d96706ba0134d7, type: 3}
   _weaponManager: {fileID: 0}
   timeSurvivalCoop:
-    m_Name:
+    m_Name: 
     m_Normal:
       m_Background: {fileID: 2800000, guid: 103001b46f425e346a72064c90918328, type: 3}
       m_ScaledBackgrounds: []
@@ -2600,9 +2672,11 @@ MonoBehaviour:
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b433413319c0f84dad42ae6b297ca4b, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
