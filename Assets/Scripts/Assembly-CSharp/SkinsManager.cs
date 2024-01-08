@@ -9,8 +9,7 @@ public class SkinsManager
 	{
 		get
 		{
-			string path = Application.persistentDataPath.Substring(0, Application.persistentDataPath.LastIndexOf(Path.DirectorySeparatorChar));
-			return Path.Combine(path, "Library");
+			return Application.persistentDataPath;
 		}
 	}
 
