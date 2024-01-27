@@ -5,10 +5,6 @@ public class keychainPlugin
 {
 	public static int getKCValue(string id)
 	{
-		if (id == Defs.Coins)
-		{
-			return 9999;
-		}
 		return PlayerPrefs.GetInt(id);
 	}
 
