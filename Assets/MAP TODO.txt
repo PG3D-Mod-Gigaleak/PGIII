@@ -9,7 +9,7 @@
 ❌ Dust - Decent Amount Of Work Required
 ❌ Farm - Finishing Touches Required
 ✅ Gluk - Finished
-❌ Hospital - FIND THE LAST LIGHTMAP
+✅ Hospital - Finished
 ❌ Jail - Completely Unfinished
 ❌ Maze - Decent Amount Of Work Required
 ✅ Pool - Finished
