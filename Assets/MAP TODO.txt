@@ -1,0 +1,21 @@
+❌ Area52 - Completely Unfinished
+❌ Arena - No Clue How To Fix
+❌ Arena_MP - No Clue How To Fix
+❌ Assault - Finishing Touches Required
+❌ Bridge - Decent Amount Of Work Required
+✅ Castle - Finished
+✅ Cementery - Finished
+✅ City - Finished
+❌ Dust - Decent Amount Of Work Required
+❌ Farm - Finishing Touches Required
+✅ Gluk - Finished
+❌ Hospital - FIND THE LAST LIGHTMAP
+❌ Jail - Completely Unfinished
+❌ Maze - Decent Amount Of Work Required
+✅ Pool - Finished
+✅ Ranch - Finished
+❌ Sky_islands - Finishing Touches Required
+❌ Slender - Completely Unfinished
+✅ Training - Finished
+❌ Utopia - Not Much Progress
+❌ Winter - Not Much Progress

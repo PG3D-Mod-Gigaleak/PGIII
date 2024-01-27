@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: cem_lever
-  m_Shader: {fileID: 4800000, guid: 7e35a07a69f9b044d8b2d6e3d7b26f6c, type: 3}
+  m_Shader: {fileID: 4800000, guid: 84cb5b5d42795e049a79eb5b4efabeba, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _LightMap:
-        m_Texture: {fileID: 2800000, guid: 5da6e16e42da4944b95f2b2eb429f54a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5b73ae7b880141540bd4a0299920e8e1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:

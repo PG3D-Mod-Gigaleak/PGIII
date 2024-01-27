@@ -1,0 +1,5 @@
+● 1. One gameobject can only have one lightmap. (except in weird random cases, but we'll handle these as exceptions and as a case-to-case basis)
+● 2. Neighboring folders contain lightmaps for the same maps, for instance, lets say you've got a lightmap(s) for hospital in Lightmap_4, Lightmap_5 and Lightmap_3 are likely to also have lightmaps for that map. as well as Lightmap_2 and Lightmap_6 and so on.
+● 3. If something is a solid color, don't put a lightmap on it. Unless for some reason it needs one but we'll handle that on a case-to-case.
+● 4. NEVER edit a material's lightmap (or just a material in general) without making a new material. This will make us all lose track of what is supposed to have what lightmap.
+● 5. A flat lightmap such as LightmapFar_3 in Lightmap_9 will almost always be only on one object, usually a flat plane.

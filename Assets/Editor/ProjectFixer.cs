@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -52,5 +53,41 @@ public class ProjectFixer : Editor
 		}
 
 		AssetDatabase.Refresh();
+	}
+
+	[MenuItem("Project Fixer/Sort Lightmaps")]
+	public static void SortLightmaps()
+	{
+		string[] paths = (from directory in Directory.GetFiles(Application.dataPath + "/Texture2D/") where directory.Contains("LightmapFar") select directory).ToArray();
+
+		Debug.LogError(paths.Length);
+
+		foreach (string path in paths)
+		{
+			SortLightmap(path);
+		}
+
+		AssetDatabase.Refresh();
+	}
+
+	private static void SortLightmap(string path)
+	{
+		if (path.Contains("meta"))
+		{
+			return;
+		}
+
+		string fileName = Path.GetFileNameWithoutExtension(path);
+
+		int index = int.Parse(fileName.Replace("LightmapFar-", "").Split('_')[0]);
+		int group = fileName.Contains("_") ? int.Parse(fileName.Split('_')[1]) + 1 : 0;
+
+		if (!Directory.Exists(Application.dataPath + "/Texture2D/Lightmap_" + group))
+		{
+			Directory.CreateDirectory(Application.dataPath + "/Texture2D/Lightmap_" + group);
+		}
+
+		File.Move(path, Application.dataPath + "/Texture2D/Lightmap_" + group + "/LightmapFar_" + index + ".png");
+		File.Move(Path.GetDirectoryName(path) + "/" + fileName + ".png.meta", Application.dataPath + "/Texture2D/Lightmap_" + group + "/LightmapFar_" + index + ".png.meta");
 	}
 }
