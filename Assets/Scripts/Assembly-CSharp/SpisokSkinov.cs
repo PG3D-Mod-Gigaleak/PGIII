@@ -405,12 +405,13 @@ public class SpisokSkinov : MonoBehaviour
 				GUI.enabled = !StoreKitEventListener.restoreInProcess && !flag;
 				if (!mainController.previewControl.Locked && GUI.Button(rightButtonRect, string.Empty, buyStyle))
 				{
-					_003COnGUI_003Ec__AnonStorey19 _003COnGUI_003Ec__AnonStorey2 = new _003COnGUI_003Ec__AnonStorey19();
-					_003COnGUI_003Ec__AnonStorey2._003C_003Ef__this = this;
-					_003COnGUI_003Ec__AnonStorey2.id = InAppData.inAppData[mainController.previewControl.CurrentTextureIndex].Key;
-					_003COnGUI_003Ec__AnonStorey2.act = null;
-					_003COnGUI_003Ec__AnonStorey2.act = _003COnGUI_003Ec__AnonStorey2._003C_003Em__D;
-					_003COnGUI_003Ec__AnonStorey2.act();
+					//_003COnGUI_003Ec__AnonStorey19 _003COnGUI_003Ec__AnonStorey2 = new _003COnGUI_003Ec__AnonStorey19();
+					//_003COnGUI_003Ec__AnonStorey2._003C_003Ef__this = this;
+					//_003COnGUI_003Ec__AnonStorey2.id = InAppData.inAppData[mainController.previewControl.CurrentTextureIndex].Key;
+					//_003COnGUI_003Ec__AnonStorey2.act = null;
+					//_003COnGUI_003Ec__AnonStorey2.act = _003COnGUI_003Ec__AnonStorey2._003C_003Em__D;
+					//_003COnGUI_003Ec__AnonStorey2.act();
+					mainController.previewControl.PurchaseSuccessful(InAppData.inAppData[mainController.previewControl.CurrentTextureIndex].Key);
 				}
 				GUI.enabled = true && !flag;
 			}
