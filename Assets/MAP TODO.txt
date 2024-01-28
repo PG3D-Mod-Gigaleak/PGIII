@@ -7,14 +7,14 @@
 ✅ Cementery - Finished
 ✅ City - Finished
 ❌ Dust - Decent Amount Of Work Required
-✅ Farm - Finishing Touches Required
+✅ Farm - Finished
 ✅ Gluk - Finished
 ✅ Hospital - Finished
 ❌ Jail - Completely Unfinished
 ❌ Maze - Decent Amount Of Work Required
 ✅ Pool - Finished
 ✅ Ranch - Finished
-❌ Sky_islands - Finishing Touches Required
+✅ Sky_islands - Finished
 ✅ Slender - Finished
 ✅ Training - Finished
 ❌ Utopia - Halfway there!
