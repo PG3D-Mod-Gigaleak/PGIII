@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Sky_islands_grass
+  m_Name: Utopia_mountains
   m_Shader: {fileID: 4800000, guid: 84cb5b5d42795e049a79eb5b4efabeba, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 0
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -19,11 +19,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _LightMap:
-        m_Texture: {fileID: 2800000, guid: bd4433de0bc557f4e9e38ed1f28a2ad4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 95c7f6f06a673b34a8fa3d04c256940b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 189d020af6da15a4e8f1b204fb31f881, type: 3}
+        m_Texture: {fileID: 2800000, guid: a2c4d60df2605724d8450488c5a7d285, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
