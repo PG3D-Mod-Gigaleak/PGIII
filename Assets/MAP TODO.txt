@@ -6,7 +6,7 @@
 ✅ Castle - Finished
 ✅ Cementery - Finished
 ✅ City - Finished
-❌ Dust - Decent Amount Of Work Required
+✅ Dust - Finished
 ✅ Farm - Finished
 ✅ Gluk - Finished
 ✅ Hospital - Finished
