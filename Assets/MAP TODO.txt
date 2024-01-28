@@ -1,7 +1,7 @@
 ❌ Area52 - Completely Unfinished
 ❌ Arena - No Clue How To Fix
 ❌ Arena_MP - No Clue How To Fix
-~ Assault - Unsure if finished
+~ Assault - Finishing touches required
 ❌ Bridge - Decent Amount Of Work Required
 ✅ Castle - Finished
 ✅ Cementery - Finished
@@ -11,7 +11,7 @@
 ✅ Gluk - Finished
 ✅ Hospital - Finished
 ❌ Jail - Completely Unfinished
-❌ Maze - Decent Amount Of Work Required
+✅ Maze - Finished
 ✅ Pool - Finished
 ✅ Ranch - Finished
 ✅ Sky_islands - Finished
