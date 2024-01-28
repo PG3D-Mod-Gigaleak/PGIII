@@ -6,7 +6,6 @@ public class Locker : MonoBehaviour
 {
 	void Start()
 	{
-		keychainPlugin.updateKCValue(9999, Defs.Coins);
 		DontDestroyOnLoad(gameObject);
 	}
 	
