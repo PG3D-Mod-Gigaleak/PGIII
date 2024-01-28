@@ -6519,21 +6519,21 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.1
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 1.1
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.033333335
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 19400000, guid: 10719b38c25fa15418823da1cf66d466, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 528f26e0c143509498195a37babe1e62, type: 2}
 --- !u!198 &392
 ParticleSystem:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ Material:
     - _LightMap:
         m_Texture: {fileID: 2800000, guid: d5f09d6843e3eda438ae4e32e2e33505, type: 3}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: -0.004, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 775ebe501e409e247a9c8372c42a4c13, type: 3}
         m_Scale: {x: 1, y: 1}
