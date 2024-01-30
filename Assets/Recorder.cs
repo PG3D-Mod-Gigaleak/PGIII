@@ -8,8 +8,11 @@ public class Recorder : MonoBehaviour
 
 	private MatchRecorder matchRecorder = new MatchRecorder();
 
+	private static Recorder instance;
+
 	void Start()
 	{
+		instance = this;
 		DontDestroyOnLoad(this);
 	}
 
@@ -33,6 +36,14 @@ public class Recorder : MonoBehaviour
 			{
 				matchRecorder.WriteFrame();
 			}
+		}
+	}
+
+	public static void Send(MatchRecorder.EventType eventType, SkinName sender = null, string param = "")
+	{
+		if (instance.recording)
+		{
+			instance.matchRecorder.WriteEvent(eventType, sender, param);
 		}
 	}
 }

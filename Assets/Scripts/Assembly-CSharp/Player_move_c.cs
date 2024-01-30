@@ -770,6 +770,7 @@ public class Player_move_c : MonoBehaviour
 					_label.GetComponent<ObjectLabel>().target = base.transform;
 					_label.GetComponent<GUIText>().text = _nickName;
 				}
+				Recorder.Send(MatchRecorder.EventType.WeaponSwitched, gameObject3.GetComponentInParent<SkinName>(), gameObject.name.Replace("(Clone)", ""));
 			}
 		}
 	}
@@ -1215,6 +1216,7 @@ public class Player_move_c : MonoBehaviour
 			{
 				gameObject.transform.GetChild(0).GetComponent<WeaponSounds>().animationObject.GetComponent<Animation>().Play("Reload");
 				gameObject.GetComponent<AudioSource>().PlayOneShot(gameObject.transform.GetChild(0).GetComponent<WeaponSounds>().reload);
+				Recorder.Send(MatchRecorder.EventType.Reload, gameObject.GetComponentInParent<SkinName>());
 			}
 		}
 	}
@@ -1235,6 +1237,7 @@ public class Player_move_c : MonoBehaviour
 			else
 			{
 				photonView.RPC("ReloadGunPhoton", PhotonTargets.Others, base.gameObject.GetComponent<PhotonView>().viewID);
+				Recorder.Send(MatchRecorder.EventType.Reload, gameObject.GetComponentInParent<SkinName>());
 			}
 		}
 		if (PlayerPrefsX.GetBool(PlayerPrefsX.SndSetting, true))
@@ -1658,6 +1661,7 @@ public class Player_move_c : MonoBehaviour
 				}
 				gameObject.transform.GetChild(0).GetComponent<WeaponSounds>().animationObject.GetComponent<Animation>().Play("Shoot");
 				gameObject.GetComponent<AudioSource>().PlayOneShot(gameObject.transform.GetChild(0).GetComponent<WeaponSounds>().shoot);
+				Recorder.Send(MatchRecorder.EventType.Shot, gameObject.GetComponentInParent<SkinName>());
 			}
 		}
 	}
@@ -1685,6 +1689,7 @@ public class Player_move_c : MonoBehaviour
 				if (PlayerPrefs.GetString("TypeConnect").Equals("inet"))
 				{
 					photonView.RPC("fireFlashPhoton", PhotonTargets.Others, base.gameObject.transform.GetComponent<PhotonView>().viewID, true, 500f, Quaternion.LookRotation(Camera.main.transform.TransformDirection(Vector3.forward)));
+					Recorder.Send(MatchRecorder.EventType.Shot, this.gameObject.GetComponentInParent<SkinName>());
 					gameObject = (GameObject)UnityEngine.Object.Instantiate(bulletPrefab, _bulletSpawnPoint.transform.position, Quaternion.LookRotation(Camera.main.transform.TransformDirection(Vector3.forward)));
 					gameObject.GetComponent<Bullet>().lifeS = 500f;
 				}
@@ -1748,6 +1753,7 @@ public class Player_move_c : MonoBehaviour
 			else
 			{
 				photonView.RPC("fireFlashPhoton", PhotonTargets.Others, base.gameObject.transform.GetComponent<PhotonView>().viewID, false, 0f, Quaternion.identity);
+				Recorder.Send(MatchRecorder.EventType.Shot, this.gameObject.GetComponentInParent<SkinName>());
 			}
 		}
 		GameObject[] array = ((PlayerPrefs.GetInt("MultyPlayer") != 1 || PlayerPrefs.GetInt("COOP", 0) == 1) ? GameObject.FindGameObjectsWithTag("Enemy") : GameObject.FindGameObjectsWithTag("Player"));
@@ -2690,6 +2696,13 @@ public class Player_move_c : MonoBehaviour
 
 	public void PurchaseSuccessful(string id)
 	{
+		if (VirtualCurrencyHelper.prices[id] > keychainPlugin.getKCValue(Defs.Coins))
+		{
+			return;
+		}
+
+		keychainPlugin.updateKCValue(keychainPlugin.getKCValue(Defs.Coins) - VirtualCurrencyHelper.prices[id], Defs.Coins);
+
 		if (!GlobalGameController.isFullVersion && id.Equals(_productsFull[0].productIdentifier))
 		{
 			PlayerPrefs.SetInt("FullVersion", 1);

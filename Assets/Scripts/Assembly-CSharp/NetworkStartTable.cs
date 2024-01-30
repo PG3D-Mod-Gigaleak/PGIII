@@ -379,18 +379,18 @@ public class NetworkStartTable : MonoBehaviour
 			GUILayout.EndHorizontal();
 			if (PlayerPrefs.GetInt("COOP", 0) == 1)
 			{
-				int num3 = 0;
+				int num3 = 1;
 				if (int.Parse(oldCountLilsSpisok[0]) >= 8500 && int.Parse(oldCountLilsSpisok[0]) < 9000)
-				{
-					num3 = 1;
-				}
-				if (int.Parse(oldCountLilsSpisok[0]) >= 9000 && int.Parse(oldCountLilsSpisok[0]) < 10000)
 				{
 					num3 = 2;
 				}
+				if (int.Parse(oldCountLilsSpisok[0]) >= 9000 && int.Parse(oldCountLilsSpisok[0]) < 10000)
+				{
+					num3 = 4;
+				}
 				if (int.Parse(oldCountLilsSpisok[0]) >= 10000)
 				{
-					num3 = 3;
+					num3 = 6;
 				}
 				if (num3 > 0)
 				{

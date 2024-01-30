@@ -15,6 +15,7 @@ public class HealthItem : MonoBehaviour
 	private void Start()
 	{
 		photonView = PhotonView.Get(this);
+		Recorder.Send(MatchRecorder.EventType.HealthSpawned, null, transform.position.x + " " + transform.position.y + " " + transform.position.z);
 		if (PlayerPrefs.GetInt("MultyPlayer") == 1)
 		{
 			if (GameObject.FindGameObjectWithTag("WeaponManager").GetComponent<WeaponManager>() != null && GameObject.FindGameObjectWithTag("WeaponManager").GetComponent<WeaponManager>().myGun != null)
@@ -139,6 +140,7 @@ public class HealthItem : MonoBehaviour
 		}
 		else
 		{
+			Recorder.Send(MatchRecorder.EventType.HealthDestroyed, null, transform.position.x + " " + transform.position.y + " " + transform.position.z);
 			Object.Destroy(base.gameObject);
 		}
 		if (test.CurHealth > test.MaxHealth)

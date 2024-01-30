@@ -13,6 +13,19 @@ public class MatchReplayer : MonoBehaviour
 
 	private Dictionary<string, DummyPlayer> playerList = new Dictionary<string, DummyPlayer>();
 
+	private List<Event> eventList = new List<Event>();
+
+	private float eventTime;
+
+	private class Event
+	{
+		public MatchRecorder.EventType eventType;
+
+		public string nick, param;
+
+		public float time;
+	}
+
 	void Start()
 	{
 		dataReader = new BinaryReader(File.Open(Application.persistentDataPath + "/Recordings/Recording_" + recordingID + ".data", FileMode.Open));
@@ -29,12 +42,27 @@ public class MatchReplayer : MonoBehaviour
 		if (loadedIn)
 		{
 			ProcessFrame();
+			
+			if (eventList.Count > 0)
+			{
+				eventTime += Time.deltaTime;
+
+				if (eventTime >= eventList[0].time)
+				{
+					ProcessEvent();
+				}
+			}
 		}
 	}
 
 	void OnLevelWasLoaded()
 	{
 		ProcessInfo();
+		ProcessEvents();
+
+		GameObject.Find("GameController").SetActive(false);
+		GameObject.Find("RenderAllInSceneObj").SetActive(false);
+		GameObject.Find("GameObjects").SetActive(false);
 		
 		loadedIn = true;
 	}
@@ -44,8 +72,6 @@ public class MatchReplayer : MonoBehaviour
 		while (true)
 		{
 			string name = dataReader.ReadString();
-
-			Debug.LogError(name);
 
 			if (name == "ENDFRAME")
 			{
@@ -72,8 +98,6 @@ public class MatchReplayer : MonoBehaviour
 		{
 			string name = infoReader.ReadString();
 
-			Debug.LogError(name);
-
 			if (name == "END")
 			{
 				break;
@@ -83,8 +107,48 @@ public class MatchReplayer : MonoBehaviour
 
 			CreatePlayer(name, Resources.Load<Texture2D>("multiplayer skins/multi_skin_" + skinIndex));
 		}
+	}
 
-		Debug.LogError("bagh");
+	private void ProcessEvents()
+	{
+		while (true)
+		{
+			string eventName = eventReader.ReadString();
+
+			if (eventName == "END")
+			{
+				break;
+			}
+
+			float time = eventReader.ReadSingle();
+
+			string nick = eventReader.ReadString();
+			string param = eventReader.ReadString();
+
+			eventList.Add(new Event { eventType = (MatchRecorder.EventType)System.Enum.Parse(typeof(MatchRecorder.EventType), eventName), time = time, nick = nick, param = param });
+		}
+	}
+
+	private void ProcessEvent()
+	{
+		Event @event = eventList[0];
+
+		switch (@event.eventType)
+		{
+			case MatchRecorder.EventType.Shot:
+				OnShot(@event.nick);
+				break;
+
+			case MatchRecorder.EventType.Reload:
+				OnReload(@event.nick);
+				break;
+
+			case MatchRecorder.EventType.WeaponSwitched:
+				OnSwitched(@event.nick, @event.param);
+				break;
+		}
+
+		eventList.RemoveAt(0);
 	}
 
 	private DummyPlayer CreatePlayer(string name, Texture2D skin)
@@ -102,11 +166,26 @@ public class MatchReplayer : MonoBehaviour
 		}
 
 		player.nickName = name;
-		player.skin = skin;
+		player.skin = skinMat;
 
 		playerList.Add(player.nickName, player);
 
 		return player;
+	}
+
+	private void OnShot(string nick)
+	{
+		LocatePlayer(nick).Shoot();
+	}
+
+	private void OnReload(string nick)
+	{
+		LocatePlayer(nick).Reload();
+	}
+
+	private void OnSwitched(string nick, string weapon)
+	{
+		LocatePlayer(nick).ChangeWeapon(weapon);
 	}
 
 	private DummyPlayer LocatePlayer(string name)

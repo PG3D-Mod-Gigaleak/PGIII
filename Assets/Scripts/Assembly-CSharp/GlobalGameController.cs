@@ -110,8 +110,8 @@ public class GlobalGameController
 		totalNumOfCompletedLevels = 0;
 		_currentIndexInMapping = 0;
 		levelMapping = new List<int>();
-		coinsBase = 2;
-		coinsBaseAdding = 1;
+		coinsBase = 3;
+		coinsBaseAdding = 2;
 		levelsToGetCoins = 5;
 		for (int i = 0; i < NumOfLevels - 1; i++)
 		{

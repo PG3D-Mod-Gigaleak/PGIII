@@ -451,6 +451,13 @@ public class PreviewController : MonoBehaviour
 
 	public void PurchaseSuccessful(string id)
 	{
+		if (VirtualCurrencyHelper.prices[id] > keychainPlugin.getKCValue(Defs.Coins))
+		{
+			return;
+		}
+
+		keychainPlugin.updateKCValue(keychainPlugin.getKCValue(Defs.Coins) - VirtualCurrencyHelper.prices[id], Defs.Coins);
+		
 		if (Array.IndexOf(StoreKitEventListener.skinIDs, id) >= 0)
 		{
 			Storager.setInt(InAppData.inAppData[CurrentTextureIndex].Value, 1);

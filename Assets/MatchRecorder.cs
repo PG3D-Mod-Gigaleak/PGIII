@@ -8,8 +8,6 @@ public class MatchRecorder
 {
 	public void StartRecording()
 	{
-		Debug.LogError(Application.persistentDataPath);
-
 		if (!Directory.Exists(Application.persistentDataPath))
 		{
 			Directory.CreateDirectory(Application.persistentDataPath);
@@ -19,8 +17,6 @@ public class MatchRecorder
 		{
 			Directory.CreateDirectory(Application.persistentDataPath + "/Recordings");
 		}
-
-		Debug.LogError("began recording");
 
 		long ticks = DateTime.Now.Ticks;
 
@@ -39,8 +35,6 @@ public class MatchRecorder
 
 	private void WriteBaseInfo()
 	{
-		Debug.LogError("began writing in: " + Application.loadedLevelName);
-
 		infoWriter.Write(Application.loadedLevelName);
 		
 		foreach (SkinName player in GameObject.FindObjectsOfType<SkinName>())
@@ -54,8 +48,6 @@ public class MatchRecorder
 
 	private void WritePlayerInfo(SkinName player)
 	{
-		Debug.LogError("wrote player: " + player.NickName);
-
 		infoWriter.Write(player.NickName);
 		infoWriter.Write(int.Parse(player.GetComponentInChildren<Player_move_c>()._skin.name.Replace("multi_skin_", "")));
 
@@ -64,8 +56,6 @@ public class MatchRecorder
 
 	public void WriteFrame()
 	{
-		Debug.LogError("wrote frame");
-
 		foreach (SkinName player in GameObject.FindObjectsOfType<SkinName>())
 		{
 			if (!cachedPlayers.ContainsKey(player.NickName))
@@ -97,12 +87,13 @@ public class MatchRecorder
 		dataWriter.Write("ENDFRAME");
 	}
 
-	public void WriteEvent(EventType eventType, SkinName sender = null)
+	public void WriteEvent(EventType eventType, SkinName sender = null, string param = "")
 	{
+		eventWriter.Write(eventType.ToString());
 		eventWriter.Write(Time.time - recordingStart);
 
-		eventWriter.Write(eventType.ToString());
 		eventWriter.Write(sender == null ? "NULL" : sender.NickName);
+		eventWriter.Write(string.IsNullOrEmpty(param) ? "NULL" : param);
 	}
 
 	public void StopRecording()
@@ -120,6 +111,6 @@ public class MatchRecorder
 
 	public enum EventType
 	{
-		Shot, Reload, Died, AmmoSpawned, HealthSpawned, PlayerJoined, PlayerLeft, WeaponSwitched
+		Shot, Reload, AmmoSpawned, AmmoDestroyed, HealthSpawned, HealthDestroyed, PlayerJoined, PlayerLeft, WeaponSwitched
 	};
 }

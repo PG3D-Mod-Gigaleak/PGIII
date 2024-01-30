@@ -15,6 +15,7 @@ public class AmmoItem : MonoBehaviour
 	private void Start()
 	{
 		photonView = PhotonView.Get(this);
+		Recorder.Send(MatchRecorder.EventType.AmmoSpawned, null, transform.position.x + " " + transform.position.y + " " + transform.position.z);
 		if (PlayerPrefs.GetInt("MultyPlayer") == 1)
 		{
 			if (GameObject.FindGameObjectWithTag("WeaponManager").GetComponent<WeaponManager>() != null && GameObject.FindGameObjectWithTag("WeaponManager").GetComponent<WeaponManager>().myGun != null)
@@ -148,6 +149,7 @@ public class AmmoItem : MonoBehaviour
 		}
 		else
 		{
+			Recorder.Send(MatchRecorder.EventType.AmmoDestroyed, null, transform.position.x + " " + transform.position.y + " " + transform.position.z);
 			Object.Destroy(base.gameObject);
 		}
 	}
