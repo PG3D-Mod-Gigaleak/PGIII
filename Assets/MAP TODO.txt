@@ -2,7 +2,7 @@
 ❌ Arena - No Clue How To Fix
 ❌ Arena_MP - No Clue How To Fix
 ~ Assault - Finishing touches required
-❌ Bridge - Halfway Done!
+✅ Bridge - Finished
 ✅ Castle - Finished
 ✅ Cementery - Finished
 ✅ City - Finished

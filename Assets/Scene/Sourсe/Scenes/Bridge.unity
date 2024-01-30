@@ -5254,11 +5254,11 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c499c3c233fc580468c49927a070aa89, type: 2}
-  - {fileID: 2100000, guid: a94c2c9b4a4d6cd408fa46fed8f2c850, type: 2}
-  - {fileID: 2100000, guid: 2a877cd6e75468341aaedf8d0c582f1c, type: 2}
-  - {fileID: 2100000, guid: 3d8a7bc067628534c8f545583aacc1bf, type: 2}
-  - {fileID: 2100000, guid: d7d741fb24ea9d34db991be48ef311a1, type: 2}
+  - {fileID: 2100000, guid: 6ed400456e57fa547a5e44d8f971ced0, type: 2}
+  - {fileID: 2100000, guid: cf88984b4deb8b94b8852992bd68c951, type: 2}
+  - {fileID: 2100000, guid: 188c653509e193f4387ab247a9054544, type: 2}
+  - {fileID: 2100000, guid: a90a815a4b4bbc1408fb1e04f0ab365c, type: 2}
+  - {fileID: 2100000, guid: 312ed6adfd6435a489b8a9b0e8219c49, type: 2}
   - {fileID: 2100000, guid: 02ceae242895ee748a91a3ac42e315e0, type: 2}
   - {fileID: 2100000, guid: 96c5ca59b124b2c4b8e2cc64858f12bd, type: 2}
   m_StaticBatchInfo:
@@ -6905,10 +6905,10 @@ MeshRenderer:
   - {fileID: 2100000, guid: 8fad4bc13e2f8034fa9d771010b4c146, type: 2}
   - {fileID: 2100000, guid: 3d8a7bc067628534c8f545583aacc1bf, type: 2}
   - {fileID: 2100000, guid: d7d741fb24ea9d34db991be48ef311a1, type: 2}
-  - {fileID: 2100000, guid: 2a877cd6e75468341aaedf8d0c582f1c, type: 2}
-  - {fileID: 2100000, guid: a94c2c9b4a4d6cd408fa46fed8f2c850, type: 2}
+  - {fileID: 2100000, guid: 11d2e931be9305a4cb6b6a67c8a1e786, type: 2}
+  - {fileID: 2100000, guid: b0526e42f20ffd1458cad3bf5a321ef4, type: 2}
   - {fileID: 2100000, guid: ad706e57e1c75d041af720032ec2d200, type: 2}
-  - {fileID: 2100000, guid: c499c3c233fc580468c49927a070aa89, type: 2}
+  - {fileID: 2100000, guid: 0393df212e21d554a8bfe98a73aba501, type: 2}
   - {fileID: 2100000, guid: 96c5ca59b124b2c4b8e2cc64858f12bd, type: 2}
   - {fileID: 2100000, guid: 02ceae242895ee748a91a3ac42e315e0, type: 2}
   m_StaticBatchInfo:
