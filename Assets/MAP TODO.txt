@@ -1,7 +1,7 @@
 ❌ Area52 - Completely Unfinished
 ❌ Arena - No Clue How To Fix
 ❌ Arena_MP - No Clue How To Fix
-~ Assault - Finishing touches required
+✅ Assault - Finished
 ✅ Bridge - Finished
 ✅ Castle - Finished
 ✅ Cementery - Finished
