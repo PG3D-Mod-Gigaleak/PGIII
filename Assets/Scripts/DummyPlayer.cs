@@ -23,7 +23,7 @@ public class DummyPlayer : MonoBehaviour
 
 	private void Update()
 	{
-		if (Vector3.Distance(new Vector3(lastPosition.x, 0, lastPosition.z), new Vector3(transform.position.x, 0, transform.position.z)) > 0.03f)
+		if (Vector3.Distance(new Vector3(lastPosition.x, 0, lastPosition.z), new Vector3(transform.position.x, 0, transform.position.z)) > 0.01f)
 		{
 			playerAnimation.CrossFade("Walk");
 

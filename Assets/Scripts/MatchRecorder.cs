@@ -49,7 +49,9 @@ public class MatchRecorder
 	private void WritePlayerInfo(SkinName player)
 	{
 		infoWriter.Write(player.NickName);
+		
 		infoWriter.Write(int.Parse(player.GetComponentInChildren<Player_move_c>()._skin.name.Replace("multi_skin_", "")));
+		infoWriter.Write(player.GetComponentInChildren<Player_move_c>().transform.GetChild(0).name.Replace("(Clone)", ""));
 
 		cachedPlayers.Add(player.NickName, player);
 	}
