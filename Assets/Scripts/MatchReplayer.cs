@@ -104,8 +104,9 @@ public class MatchReplayer : MonoBehaviour
 			}
 
 			int skinIndex = infoReader.ReadInt32();
+			string weaponName = infoReader.ReadString();
 
-			CreatePlayer(name, Resources.Load<Texture2D>("multiplayer skins/multi_skin_" + skinIndex));
+			CreatePlayer(name, Resources.Load<Texture2D>("multiplayer skins/multi_skin_" + skinIndex), weaponName);
 		}
 	}
 
@@ -151,7 +152,7 @@ public class MatchReplayer : MonoBehaviour
 		eventList.RemoveAt(0);
 	}
 
-	private DummyPlayer CreatePlayer(string name, Texture2D skin)
+	private DummyPlayer CreatePlayer(string name, Texture2D skin, string weapon)
 	{
 		DummyPlayer player = Instantiate(Resources.Load<GameObject>("DummyPlayer")).GetComponent<DummyPlayer>();
 
@@ -167,6 +168,8 @@ public class MatchReplayer : MonoBehaviour
 
 		player.nickName = name;
 		player.skin = skinMat;
+
+		player.ChangeWeapon(weapon);
 
 		playerList.Add(player.nickName, player);
 
