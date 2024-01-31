@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _LightMap:
-        m_Texture: {fileID: 2800000, guid: 8bdda59565026fa4a8af8744571fc54e, type: 3}
+        m_Texture: {fileID: 2800000, guid: f1302e0d2abcb67499a0e6b088432b9c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -29,3 +29,4 @@ Material:
     m_Floats: []
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _LightMapTiling: {r: 1, g: 1, b: 0, a: 0}
