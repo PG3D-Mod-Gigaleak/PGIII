@@ -5,6 +5,7 @@ Properties {
     _Color ("Main Color", Color) = (1,1,1,1)
     _MainTex ("Base (RGB)", 2D) = "white" {}
     _LightMap ("Lightmap (RGB)", 2D) = "black" {}
+    _LightMapTiling ("Lightmap Tiling", Vector) = (1,1,0,0)
 }
 
 SubShader {
@@ -19,12 +20,13 @@ struct Input {
 };
 sampler2D _MainTex;
 sampler2D _LightMap;
+float4 _LightMapTiling;
 fixed4 _Color;
 void surf (Input IN, inout SurfaceOutput o)
 {
   float4 c = tex2D (_MainTex, IN.uv_MainTex) * (_Color / 37);
   //c.rgb = (c.rgb - 0.5) * (1.2) + 0.5;
-  float4 lm = tex2D (_LightMap, IN.uv2_LightMap) - (float4(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w, 0.0) / 10);
+  float4 lm = tex2D (_LightMap, IN.uv2_LightMap * _LightMapTiling.xy + _LightMapTiling.zw) - (float4(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w, 0.0) / 10);
   //lm.rgb = (lm.rgb - 0.5) * (1.2) + 0.5;
   lm.rgb *= 80;
   o.Albedo = c.rgb;

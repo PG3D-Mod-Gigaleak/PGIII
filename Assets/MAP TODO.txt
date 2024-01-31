@@ -1,6 +1,6 @@
 ❌ Area52 - Completely Unfinished
-❌ Arena - No Clue How To Fix
-❌ Arena_MP - No Clue How To Fix
+✅ Arena - Finished
+✅ Arena_MP - Finished
 ✅ Assault - Finished
 ✅ Bridge - Finished
 ✅ Castle - Finished
@@ -10,7 +10,7 @@
 ✅ Farm - Finished
 ✅ Gluk - Finished
 ✅ Hospital - Finished
-❌ Jail - Completely Unfinished
+✅ Jail - Finished
 ✅ Maze - Finished
 ✅ Pool - Finished
 ✅ Ranch - Finished
