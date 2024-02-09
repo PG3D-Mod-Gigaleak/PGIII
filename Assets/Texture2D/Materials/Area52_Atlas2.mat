@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Area52_Atlas2
-  m_Shader: {fileID: 4800000, guid: da2c7cf8d05d946478a78aca62b94c45, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8a890cfb24e8781408fa52cd181d8a0a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -18,10 +18,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _LightMap:
+        m_Texture: {fileID: 2800000, guid: 09d7512e6f555a046b44368c9ee83839, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 7d4b17a90d0ee3f4597d1aa2aec67b1e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cutoff: 0.5
-    m_Colors: []
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _LightMapTiling: {r: 1, g: 1, b: 0, a: 0}
