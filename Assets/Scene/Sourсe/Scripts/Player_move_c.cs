@@ -124,6 +124,10 @@ public class Player_move_c : MonoBehaviour
 		}
 	}
 
+    [SerializeField] 
+    [Tooltip("THIS IS FOR CHAT!!!")]
+    public string chatSerialized;
+
 	public GUISkin MySkin;
 
 	public Texture2D ammoTexture;
@@ -1418,7 +1422,52 @@ public class Player_move_c : MonoBehaviour
 		}
 	}
 
-	[RPC]
+    [RPC]
+    public void Chat(string text/*, int id*/)
+    {
+        if (_weaponManager == null || _weaponManager.myPlayer == null)
+        {
+            return;
+        }
+        /*string text = string.Empty;
+        string text2 = string.Empty;
+        GameObject[] array = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] array2 = array;
+        foreach (GameObject gameObject in array2)
+        {
+            if (gameObject.GetComponent<PhotonView>().viewID == idKiller)
+            {
+                text = gameObject.GetComponent<SkinName>().NickName;
+            }
+            if (gameObject.GetComponent<PhotonView>().viewID == id)
+            {
+                text2 = gameObject.GetComponent<SkinName>().NickName;
+            }
+            if (gameObject.GetComponent<PhotonView>().viewID == idKiller && gameObject == _weaponManager.myPlayer)
+            {
+                countKills++;
+                _weaponManager.myTable.GetComponent<NetworkStartTable>().CountKills = countKills;
+                _weaponManager.myTable.GetComponent<NetworkStartTable>().synchState();
+                if (countKills >= maxCountKills)
+                {
+                    photonView.RPC("pobedaPhoton", PhotonTargets.AllBuffered, idKiller);
+                    PlayerPrefs.SetInt("Rating", PlayerPrefs.GetInt("Rating", 0) + 1);
+                    _weaponManager.myTable.GetComponent<NetworkStartTable>().isIwin = true;
+                }
+            }
+        }*/
+        if (_weaponManager.myPlayer != null)
+        {
+            _weaponManager.myPlayer.GetComponent<SkinName>().playerGameObject.GetComponent<Player_move_c>().killedSpisok[2] = _weaponManager.myPlayer.GetComponent<SkinName>().playerGameObject.GetComponent<Player_move_c>().killedSpisok[1];
+            _weaponManager.myPlayer.GetComponent<SkinName>().playerGameObject.GetComponent<Player_move_c>().killedSpisok[1] = _weaponManager.myPlayer.GetComponent<SkinName>().playerGameObject.GetComponent<Player_move_c>().killedSpisok[0];
+            _weaponManager.myPlayer.GetComponent<SkinName>().playerGameObject.GetComponent<Player_move_c>().killedSpisok[0] = text;
+            _weaponManager.myPlayer.GetComponent<SkinName>().playerGameObject.GetComponent<Player_move_c>().timerShow[2] = _weaponManager.myPlayer.GetComponent<SkinName>().playerGameObject.GetComponent<Player_move_c>().timerShow[1];
+            _weaponManager.myPlayer.GetComponent<SkinName>().playerGameObject.GetComponent<Player_move_c>().timerShow[1] = _weaponManager.myPlayer.GetComponent<SkinName>().playerGameObject.GetComponent<Player_move_c>().timerShow[0];
+            _weaponManager.myPlayer.GetComponent<SkinName>().playerGameObject.GetComponent<Player_move_c>().timerShow[0] = 3f;
+        }
+    }
+
+    [RPC]
 	public void pobeda(NetworkViewID idKiller)
 	{
 		GameObject[] array = GameObject.FindGameObjectsWithTag("Player");
@@ -1918,7 +1967,11 @@ public class Player_move_c : MonoBehaviour
 				{
 					ReloadPressed();
 				}
-			}
+                if (Input.GetKeyDown(KeyCode.Alpha9))
+                {
+                    photonView.RPC("Chat", PhotonTargets.All, new object[]{ chatSerialized });
+                }
+            }
 		}
 		slideScroll();
 		if (timerShow[0] > 0f)
