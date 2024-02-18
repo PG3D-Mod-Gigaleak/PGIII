@@ -8,6 +8,7 @@ public class MatchReplayer : MonoBehaviour
 	public long recordingID;
 
 	private bool loadedIn;
+	private bool isFirstPerson;
 
 	private BinaryReader dataReader, infoReader, eventReader;
 
@@ -15,8 +16,8 @@ public class MatchReplayer : MonoBehaviour
 
 	private List<Event> eventList = new List<Event>();
 
-	private float eventTime;
-
+	private long frameTime;
+	private bool isDone = false;
 	private class Event
 	{
 		public MatchRecorder.EventType eventType;
@@ -34,6 +35,8 @@ public class MatchReplayer : MonoBehaviour
 
 		DontDestroyOnLoad(gameObject);
 
+		isFirstPerson = infoReader.ReadBoolean();
+		Application.targetFrameRate = 30;
 		Application.LoadLevel(infoReader.ReadString());
 	}
 
@@ -45,9 +48,7 @@ public class MatchReplayer : MonoBehaviour
 			
 			if (eventList.Count > 0)
 			{
-				eventTime += Time.deltaTime;
-
-				if (eventTime >= eventList[0].time)
+				if (frameTime >= eventList[0].time)
 				{
 					ProcessEvent();
 				}
@@ -62,13 +63,22 @@ public class MatchReplayer : MonoBehaviour
 
 		GameObject.Find("GameController").SetActive(false);
 		GameObject.Find("RenderAllInSceneObj").SetActive(false);
-		GameObject.Find("GameObjects").SetActive(false);
+		if (Application.loadedLevelName == "Castle")
+		{
+			GameObject.Find("GameObjectsCastle").SetActive(false);
+		}
+		else
+		{
+			GameObject.Find("GameObjects").SetActive(false);
+		}
 		
 		loadedIn = true;
 	}
 
 	private void ProcessFrame()
 	{
+		long frame_num = dataReader.ReadInt64();
+		frameTime = frame_num;
 		while (dataReader.BaseStream.Position < dataReader.BaseStream.Length)
 		{
 			byte evt_byte = dataReader.ReadByte();
@@ -76,7 +86,11 @@ public class MatchReplayer : MonoBehaviour
 			if (evt_byte == (byte)EVTID.END_FRAME)
 				break;
 			if (evt_byte == (byte)EVTID.END_REC)
+			{
+				// RECORDING HAS ENDED.
+				loadedIn = false;
 				break;
+			}
 
 			string name = dataReader.ReadString();
 
@@ -92,10 +106,14 @@ public class MatchReplayer : MonoBehaviour
 
 			DummyPlayer player = LocatePlayer(name);
 			
-			player.transform.position = new Vector3(dataReader.ReadSingle(), dataReader.ReadSingle(), dataReader.ReadSingle());
+			player.transform.position = Vector3.Lerp(player.transform.position, new Vector3(dataReader.ReadSingle(), dataReader.ReadSingle(), dataReader.ReadSingle()), 0.5f);
 			player.transform.rotation = new Quaternion(dataReader.ReadSingle(), dataReader.ReadSingle(), dataReader.ReadSingle(), dataReader.ReadSingle());
 			
-			player.moveC.transform.rotation = new Quaternion(dataReader.ReadSingle(), dataReader.ReadSingle(), dataReader.ReadSingle(), dataReader.ReadSingle());
+			Quaternion rot = new Quaternion(dataReader.ReadSingle(), dataReader.ReadSingle(), dataReader.ReadSingle(), dataReader.ReadSingle());
+			if (player.cam.gameObject.activeInHierarchy) {
+				player.cam.transform.rotation = rot;
+			}
+			player.moveC.transform.rotation = rot;
 		}
 	}
 
@@ -107,10 +125,16 @@ public class MatchReplayer : MonoBehaviour
 
 			string name = infoReader.ReadString();
 
+			bool is_mine = false;
+			if (isFirstPerson)
+			{
+				is_mine = infoReader.ReadBoolean();
+			}
+
 			int skinIndex = infoReader.ReadInt32();
 			string weaponName = infoReader.ReadString();
 
-			CreatePlayer(name, Resources.Load<Texture2D>("multiplayer skins/multi_skin_" + skinIndex), weaponName);
+			CreatePlayer(name, Resources.Load<Texture2D>("multiplayer skins/multi_skin_" + skinIndex), weaponName, is_mine);
 		}
 	}
 
@@ -118,6 +142,7 @@ public class MatchReplayer : MonoBehaviour
 	{
 		while (eventReader.BaseStream.Position < eventReader.BaseStream.Length)
 		{
+			long frame = eventReader.ReadInt64();
 			byte evt_byte = eventReader.ReadByte();
 
 			if (evt_byte == (byte)EVTID.END_REC)
@@ -125,12 +150,10 @@ public class MatchReplayer : MonoBehaviour
 
 			MatchRecorder.EventType eventType = (MatchRecorder.EventType)eventReader.ReadByte();
 
-			float time = eventReader.ReadSingle();
-
 			string nick = eventReader.ReadString();
 			string param = eventReader.ReadString();
 
-			eventList.Add(new Event { eventType = eventType, time = time, nick = nick, param = param });
+			eventList.Add(new Event { eventType = eventType, time = frame, nick = nick, param = param });
 		}
 	}
 
@@ -156,7 +179,7 @@ public class MatchReplayer : MonoBehaviour
 		eventList.RemoveAt(0);
 	}
 
-	private DummyPlayer CreatePlayer(string name, Texture2D skin, string weapon)
+	private DummyPlayer CreatePlayer(string name, Texture2D skin, string weapon, bool is_mine = false)
 	{
 		DummyPlayer player = Instantiate(Resources.Load<GameObject>("DummyPlayer")).GetComponent<DummyPlayer>();
 
@@ -168,6 +191,12 @@ public class MatchReplayer : MonoBehaviour
 		foreach (Renderer renderer in player.GetComponentsInChildren<Renderer>())
 		{
             renderer.sharedMaterial = skinMat;
+		}
+
+		if (is_mine)
+		{
+			player.body.SetActive(false);
+			player.cam.gameObject.SetActive(true);
 		}
 
 		player.nickName = name;

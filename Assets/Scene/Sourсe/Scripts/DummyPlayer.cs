@@ -12,6 +12,10 @@ public class DummyPlayer : MonoBehaviour
 
 	public Material skin;
 
+	public Camera cam;
+
+	public GameObject body;
+
 	private Animation currentWeapon;
 
 	private Vector3 lastPosition;

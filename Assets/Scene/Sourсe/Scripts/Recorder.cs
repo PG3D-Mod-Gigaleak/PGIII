@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Recorder : MonoBehaviour
 {
+	public bool recordAsFirstPerson;
 	private bool recording;
 
 	private MatchRecorder matchRecorder = new MatchRecorder();
 
-	private static Recorder instance;
+	public static Recorder instance;
 
 	void Start()
 	{
@@ -34,6 +35,7 @@ public class Recorder : MonoBehaviour
 			}
 			else
 			{
+				matchRecorder.curFrame++;
 				matchRecorder.WriteFrame();
 			}
 		}

@@ -6,6 +6,7 @@ using System;
 
 public class MatchRecorder
 {
+	private long id = 0;
 	public void StartRecording()
 	{
 		if (!Directory.Exists(Application.persistentDataPath))
@@ -24,6 +25,8 @@ public class MatchRecorder
 			ticks++;
 		}
 
+		id = ticks;
+
 		recordingStart = Time.time;
 
 		infoWriter = new BinaryWriter(File.Open(Application.persistentDataPath + "/Recordings/Recording_" + ticks + ".info", FileMode.OpenOrCreate));
@@ -36,9 +39,14 @@ public class MatchRecorder
 	private Dictionary<string, SkinName> cachedPlayers = new Dictionary<string, SkinName>();
 
 	private float recordingStart;
+	
+	public long curFrame = 0;
 
 	private void WriteBaseInfo()
 	{
+		Debug.Log(string.Format("Started recording {0}.", id));
+
+		infoWriter.Write(Recorder.instance.recordAsFirstPerson);
 		infoWriter.Write(Application.loadedLevelName);
 		
 		foreach (SkinName player in GameObject.FindObjectsOfType<SkinName>())
@@ -54,6 +62,11 @@ public class MatchRecorder
 	{
 		infoWriter.Write((byte)EVTID.SNAPSHOT);
 		infoWriter.Write(player.NickName);
+
+		if (Recorder.instance.recordAsFirstPerson)
+		{
+			infoWriter.Write(player.GetComponentInChildren<Player_move_c>().GetComponent<PhotonView>().isMine);
+		}
 		
 		infoWriter.Write(int.Parse(player.GetComponentInChildren<Player_move_c>()._skin.name.Replace("multi_skin_", "")));
 		infoWriter.Write(player.GetComponentInChildren<Player_move_c>().transform.GetChild(0).name.Replace("(Clone)", ""));
@@ -63,6 +76,8 @@ public class MatchRecorder
 
 	public void WriteFrame()
 	{
+		dataWriter.Write(curFrame);
+		
 		foreach (SkinName player in GameObject.FindObjectsOfType<SkinName>())
 		{
 			if (!cachedPlayers.ContainsKey(player.NickName))
@@ -97,10 +112,10 @@ public class MatchRecorder
 
 	public void WriteEvent(EventType eventType, SkinName sender = null, string param = "")
 	{
+		eventWriter.Write(curFrame);
 		eventWriter.Write((byte)EVTID.SNAPSHOT);
 
 		eventWriter.Write((byte)eventType);
-		eventWriter.Write(Time.time - recordingStart);
 
 		eventWriter.Write(sender == null ? "NULL" : sender.NickName);
 		eventWriter.Write(string.IsNullOrEmpty(param) ? "NULL" : param);
@@ -113,6 +128,8 @@ public class MatchRecorder
 		infoWriter.Close();
 		dataWriter.Close();
 		eventWriter.Close();
+
+		Debug.Log(string.Format("Stopped recording {0}.", id));
 	}
 
 	private BinaryWriter infoWriter, dataWriter, eventWriter;
