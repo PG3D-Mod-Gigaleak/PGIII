@@ -18,7 +18,11 @@ public class MatchRecorder
 			Directory.CreateDirectory(Application.persistentDataPath + "/Recordings");
 		}
 
-		long ticks = DateTime.Now.Ticks;
+		long ticks = 1;
+		while (File.Exists(Application.persistentDataPath + "/Recordings/Recording_" + ticks + ".info"))
+		{
+			ticks++;
+		}
 
 		recordingStart = Time.time;
 
@@ -48,6 +52,7 @@ public class MatchRecorder
 
 	private void WritePlayerInfo(SkinName player)
 	{
+		infoWriter.Write((byte)EVTID.SNAPSHOT);
 		infoWriter.Write(player.NickName);
 		
 		infoWriter.Write(int.Parse(player.GetComponentInChildren<Player_move_c>()._skin.name.Replace("multi_skin_", "")));
@@ -66,6 +71,7 @@ public class MatchRecorder
 			}
 			else
 			{
+				dataWriter.Write((byte)EVTID.SNAPSHOT);
 				dataWriter.Write(player.NickName);
 
 				dataWriter.Write(player.transform.position.x);
@@ -86,12 +92,14 @@ public class MatchRecorder
 			}
 		}
 
-		dataWriter.Write("ENDFRAME");
+		dataWriter.Write((byte)EVTID.END_FRAME);
 	}
 
 	public void WriteEvent(EventType eventType, SkinName sender = null, string param = "")
 	{
-		eventWriter.Write(eventType.ToString());
+		eventWriter.Write((byte)EVTID.SNAPSHOT);
+
+		eventWriter.Write((byte)eventType);
 		eventWriter.Write(Time.time - recordingStart);
 
 		eventWriter.Write(sender == null ? "NULL" : sender.NickName);
@@ -100,9 +108,7 @@ public class MatchRecorder
 
 	public void StopRecording()
 	{
-		dataWriter.Write("END");
-		infoWriter.Write("END");
-		eventWriter.Write("END");
+		dataWriter.Write((byte)EVTID.END_REC);
 
 		infoWriter.Close();
 		dataWriter.Close();

@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08489a4e73655754ea71cc353615aef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recordingID: 638422504499846657
+  recordingID: 1
 --- !u!4 &1565577183
 Transform:
   m_ObjectHideFlags: 0

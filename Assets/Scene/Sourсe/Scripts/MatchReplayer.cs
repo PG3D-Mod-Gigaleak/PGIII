@@ -69,11 +69,18 @@ public class MatchReplayer : MonoBehaviour
 
 	private void ProcessFrame()
 	{
-		while (true)
+		while (dataReader.BaseStream.Position < dataReader.BaseStream.Length)
 		{
+			byte evt_byte = dataReader.ReadByte();
+
+			if (evt_byte == (byte)EVTID.END_FRAME)
+				break;
+			if (evt_byte == (byte)EVTID.END_REC)
+				break;
+
 			string name = dataReader.ReadString();
 
-			if (name == "ENDFRAME")
+			/*if (name == "ENDFRAME")
 			{
 				break;
 			}
@@ -81,7 +88,7 @@ public class MatchReplayer : MonoBehaviour
 			{
 				loadedIn = false;
 				break;
-			}
+			}*/
 
 			DummyPlayer player = LocatePlayer(name);
 			
@@ -94,14 +101,11 @@ public class MatchReplayer : MonoBehaviour
 
 	private void ProcessInfo()
 	{
-		while (true)
+		while (infoReader.BaseStream.Position < infoReader.BaseStream.Length)
 		{
-			string name = infoReader.ReadString();
+			byte evt_byte = infoReader.ReadByte();
 
-			if (name == "END")
-			{
-				break;
-			}
+			string name = infoReader.ReadString();
 
 			int skinIndex = infoReader.ReadInt32();
 			string weaponName = infoReader.ReadString();
@@ -112,21 +116,21 @@ public class MatchReplayer : MonoBehaviour
 
 	private void ProcessEvents()
 	{
-		while (true)
+		while (eventReader.BaseStream.Position < eventReader.BaseStream.Length)
 		{
-			string eventName = eventReader.ReadString();
+			byte evt_byte = eventReader.ReadByte();
 
-			if (eventName == "END")
-			{
+			if (evt_byte == (byte)EVTID.END_REC)
 				break;
-			}
+
+			MatchRecorder.EventType eventType = (MatchRecorder.EventType)eventReader.ReadByte();
 
 			float time = eventReader.ReadSingle();
 
 			string nick = eventReader.ReadString();
 			string param = eventReader.ReadString();
 
-			eventList.Add(new Event { eventType = (MatchRecorder.EventType)System.Enum.Parse(typeof(MatchRecorder.EventType), eventName), time = time, nick = nick, param = param });
+			eventList.Add(new Event { eventType = eventType, time = time, nick = nick, param = param });
 		}
 	}
 
