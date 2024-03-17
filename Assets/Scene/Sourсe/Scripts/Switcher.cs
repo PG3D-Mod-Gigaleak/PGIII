@@ -341,6 +341,6 @@ public class Switcher : MonoBehaviour
 			GlobalGameController.incrementLevel();
 		}
 		Debug.Log("3 GlobalGameController.currentLevel " + GlobalGameController.currentLevel);
-		Application.LoadLevel(text);
+		Application.LoadLevel(text + (text == "Restart" ? "" : "-1"));
 	}
 }

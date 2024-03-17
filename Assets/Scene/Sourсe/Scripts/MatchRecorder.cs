@@ -33,6 +33,14 @@ public class MatchRecorder
 		dataWriter = new BinaryWriter(File.Open(Application.persistentDataPath + "/Recordings/Recording_" + ticks + ".data", FileMode.OpenOrCreate));
 		eventWriter = new BinaryWriter(File.Open(Application.persistentDataPath + "/Recordings/Recording_" + ticks + ".events", FileMode.OpenOrCreate));
 
+		foreach (SkinName player in GameObject.FindObjectsOfType<SkinName>())
+		{
+			if (player.GetComponentInChildren<Player_move_c>().GetComponent<PhotonView>().isMine)
+			{
+				player.GetComponentInChildren<Player_move_c>().Chat("Recording");
+			}
+		}
+
 		WriteBaseInfo();
 	}
 
@@ -68,7 +76,10 @@ public class MatchRecorder
 			infoWriter.Write(player.GetComponentInChildren<Player_move_c>().GetComponent<PhotonView>().isMine);
 		}
 		
-		infoWriter.Write(int.Parse(player.GetComponentInChildren<Player_move_c>()._skin.name.Replace("multi_skin_", "")));
+		if (player.GetComponentInChildren<Player_move_c>()._skin != null)
+			infoWriter.Write(int.Parse(player.GetComponentInChildren<Player_move_c>()._skin.name.Replace("multi_skin_", "")));
+		else
+			infoWriter.Write((int)1);
 		infoWriter.Write(player.GetComponentInChildren<Player_move_c>().transform.GetChild(0).name.Replace("(Clone)", ""));
 
 		cachedPlayers.Add(player.NickName, player);
@@ -128,6 +139,14 @@ public class MatchRecorder
 		infoWriter.Close();
 		dataWriter.Close();
 		eventWriter.Close();
+
+		foreach (SkinName player in GameObject.FindObjectsOfType<SkinName>())
+		{
+			if (player.GetComponentInChildren<Player_move_c>().GetComponent<PhotonView>().isMine)
+			{
+				player.GetComponentInChildren<Player_move_c>().Chat("Stopped");
+			}
+		}
 
 		Debug.Log(string.Format("Stopped recording {0}.", id));
 	}

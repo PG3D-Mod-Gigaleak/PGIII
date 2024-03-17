@@ -98,3 +98,9 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scene/Sour\u0441e/Scenes/Assault.unity"
     guid: d04a7ba91a98c284fb9aca93524196a0
+  - enabled: 1
+    path: "Assets/Scene/Sour\u0441e/Scenes/TEST/Maze/Maze-1.unity"
+    guid: 7cdb3cb60711948498e7fc1fe8f53dba
+  - enabled: 1
+    path: "Assets/Scene/Sour\u0441e/Scenes/TEST/Training/Training-1.unity"
+    guid: a1f9b7e789289435cb324dea8a5e5972

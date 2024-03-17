@@ -51,6 +51,8 @@ public class Initializer : MonoBehaviour
 			}
 			gameObject = Resources.Load("BackgroundMusic/BackgroundMusic_Level" + GlobalGameController.currentLevel) as GameObject;
 		}
+		if (gameObject == null)
+			gameObject = (Resources.Load("BackgroundMusic/BackgroundMusic_Level0") as GameObject);
 		UnityEngine.Object.Instantiate(gameObject);
 		if (PlayerPrefs.GetInt("MultyPlayer") != 1)
 		{
