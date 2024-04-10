@@ -16,13 +16,5 @@ public class Locker : MonoBehaviour
 		{
 			Screen.lockCursor = !Screen.lockCursor;
 		}
-		if (Input.GetKeyDown(KeyCode.F3))
-		{
-			Time.timeScale -= 0.25f;
-		}
-		if (Input.GetKeyDown(KeyCode.F4))
-		{
-			Time.timeScale += 0.25f;
-		}
 	}
 }
