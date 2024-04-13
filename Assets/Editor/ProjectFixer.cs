@@ -7,7 +7,7 @@ using UnityEditor;
 
 public class ProjectFixer : Editor
 {
-	[MenuItem("Project Fixer/Sort Animations")]
+	[MenuItem("Window/Experimental/Project Fixer/Sort Animations")]
 	public static void FixAnims()
 	{
 		if (!EditorUtility.DisplayDialog("Are you sure?", "Make sure you have backups!! this will also rename files with AR or DevX's naming conventions that are MEANT to have that name!", "Proceed", "Cancel"))
@@ -55,7 +55,7 @@ public class ProjectFixer : Editor
 		AssetDatabase.Refresh();
 	}
 
-	[MenuItem("Project Fixer/Sort Lightmaps")]
+	[MenuItem("Window/Experimental/Project Fixer/Sort Lightmaps")]
 	public static void SortLightmaps()
 	{
 		string[] paths = (from directory in Directory.GetFiles(Application.dataPath + "/Texture2D/") where directory.Contains("LightmapFar") select directory).ToArray();

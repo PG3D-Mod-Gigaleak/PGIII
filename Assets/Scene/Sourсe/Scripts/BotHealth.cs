@@ -65,6 +65,8 @@ public class BotHealth : MonoBehaviour
 
 	public static Texture SetSkinForObj(GameObject go)
 	{
+		if (go.name.Contains("Enemy26"))
+			return null;
 		if (!_skinsManager)
 		{
 			_skinsManager = GameObject.FindGameObjectWithTag("SkinsManager").GetComponent<SkinsManagerPixlGun>();

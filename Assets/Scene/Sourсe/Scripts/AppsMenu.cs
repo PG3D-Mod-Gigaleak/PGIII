@@ -23,6 +23,7 @@ public class AppsMenu : MonoBehaviour {
 
 	private void Start()
 	{
+		PhotonNetwork.PhotonServerSettings.UseCloud("538670b4-9abd-42d8-9cbb-ec6f00c7f8c5", 0);
 #if UNITY_EDITOR
         Invoke("LoadLoading", 1f/30f);
 #else

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LightmapFinder : EditorWindow
 {
-    [MenuItem("Lightmaps/Open Lightmap Fixer")]
+    [MenuItem("Window/Experimental/Lightmaps/Open Lightmap Fixer")]
     public static void ShowWindow()
     {
         EditorWindow.GetWindow(typeof(LightmapFinder));
